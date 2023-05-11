@@ -65,3 +65,5 @@ function getRandomInt(max) {
   automateTests()
 
   console.log("**************************************** \n");
+
+  
