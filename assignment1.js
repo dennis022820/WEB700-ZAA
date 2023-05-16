@@ -24,16 +24,16 @@ var serverResponses = ["Welcome to WEB700 Assignment 1","This assignment was pre
 //Step 4 - Creating the "web server simulator" Function - "httpRequest" 
 
 function httpRequest(httpVerb, path) {
-
-    for (var z = 0; z < serverVerbs.length; z++) {
-        if (serverVerbs[z] == httpVerb && serverPaths[z] == path) {
-          return "200: " + serverResponses[z];
-        } else {
-          continue
-        }
+  for (var indexValue in serverVerbs) {
+    if (serverVerbs[indexValue] == httpVerb) {
+      if (serverPaths[indexValue] == path) {
+        return "200: ".concat(serverResponses[indexValue]);
       }
-      return "404: Unable to process " + httpVerb + " request for " + path;
-
+    } else {
+      continue;
+    }    
+  }
+  return "404: Unable to process ".concat(httpVerb, " request for ", path);
 }
 
 //Step 5 - Manually Testing the "httpRequest" Function
